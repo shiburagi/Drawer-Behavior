@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.infideap.drawerbehaviorexample.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            style="@style/Button.Primary"
+            android:text="default" />
+
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_advance1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.Accent"
+            android:ems="15"
+            android:text="Advance 1" />
+
+
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_advance2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            style="@style/Button.Primary"
+            android:text="Advance 2" />
+
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_advance3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.Accent"
+            android:ems="15"
+            android:text="Advance 3" />
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_advance4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            style="@style/Button.Primary"
+            android:text="Advance 4" />
+    </LinearLayout>
+</RelativeLayout>
