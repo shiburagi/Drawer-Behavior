@@ -1,5 +1,8 @@
 # Drawer-Behavior
 [ ![Download](https://api.bintray.com/packages/infideap2/Drawer-Behavior/Drawer-Behavior/images/download.svg) ](https://bintray.com/infideap2/Drawer-Behavior/Drawer-Behavior/_latestVersion)
+
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/master/preview.gif)
+
 ## Including In Your Project
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
