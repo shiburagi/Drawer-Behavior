@@ -5,6 +5,8 @@ Drawer behavior is a library that provide a extra behavior on drawer, such as, m
 
 ![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/master/preview.gif)
 
+Android 9.0+ support
+
 ## Including In Your Project
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
