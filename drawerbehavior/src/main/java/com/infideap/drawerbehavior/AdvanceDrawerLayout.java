@@ -3,6 +3,7 @@ package com.infideap.drawerbehavior;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -208,7 +209,13 @@ public class AdvanceDrawerLayout extends DrawerLayout {
                 adjust = setting.elevation;
                 float width = childAbsGravity == absHorizGravity ?
                         drawerView.getWidth() + adjust : -drawerView.getWidth() - adjust;
-                child.setX(width * slideOffset);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    child.setX(width * slideOffset);
+                } else {
+                    params.leftMargin = (int) (width * slideOffset);
+                }
+
+
             } else {
                 super.setScrimColor(defaultScrimColor);
                 super.setDrawerElevation(defaultDrawerElevation);
