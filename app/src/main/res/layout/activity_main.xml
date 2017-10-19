@@ -50,5 +50,13 @@
             android:ems="15"
             style="@style/Button.Primary"
             android:text="Advance 4" />
+
+        <com.app.infideap.stylishwidget.view.AButton
+            android:id="@+id/button_advance5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            style="@style/Button.Accent"
+            android:text="Advance 5 (Card)" />
     </LinearLayout>
 </RelativeLayout>

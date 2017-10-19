@@ -3,12 +3,12 @@ package com.infideap.drawerbehavior;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -74,6 +74,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         });
 
         frameLayout = new FrameLayout(context);
+
         super.addView(frameLayout);
 
     }
@@ -83,7 +84,11 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         if (child instanceof NavigationView) {
             super.addView(child);
         } else {
-            frameLayout.addView(child);
+            CardView cardView = new CardView(getContext());
+            cardView.setRadius(0);
+            cardView.addView(child);
+            cardView.setCardElevation(0);
+            frameLayout.addView(cardView);
         }
     }
 
@@ -140,6 +145,24 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         setting.drawerElevation = elevation;
     }
 
+    public void setRadius(int gravity, float radius) {
+        int absGravity = getDrawerViewAbsoluteGravity(gravity);
+        Setting setting;
+        if (!settings.containsKey(absGravity)) {
+            setting = new Setting();
+            settings.put(absGravity, setting);
+        } else
+            setting = settings.get(absGravity);
+
+        setting.radius = radius;
+    }
+
+
+    public Setting getSetting(int gravity) {
+        int absGravity = getDrawerViewAbsoluteGravity(gravity);
+        return settings.get(absGravity);
+
+    }
 
     @Override
     public void setDrawerElevation(float elevation) {
@@ -190,11 +213,13 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
 
         for (int i = 0; i < frameLayout.getChildCount(); i++) {
-            View child = frameLayout.getChildAt(i);
+            CardView child = (CardView) frameLayout.getChildAt(i);
             Setting setting = settings.get(childAbsGravity);
             float adjust = 0;
 
             if (setting != null) {
+
+                child.setRadius((int) (setting.radius * slideOffset));
                 super.setScrimColor(setting.scrimColor);
                 super.setDrawerElevation(setting.drawerElevation);
                 float percentage = 1f - setting.percentage;
@@ -204,16 +229,11 @@ public class AdvanceDrawerLayout extends DrawerLayout {
                 params.topMargin = (int) (reduceHeight / 2);
                 params.bottomMargin = (int) (reduceHeight / 2);
                 child.setLayoutParams(params);
-                ViewCompat.setElevation(child, setting.elevation * slideOffset);
-
+                child.setCardElevation(setting.elevation * slideOffset);
                 adjust = setting.elevation;
                 float width = childAbsGravity == absHorizGravity ?
                         drawerView.getWidth() + adjust : -drawerView.getWidth() - adjust;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    child.setX(width * slideOffset);
-                } else {
-                    params.leftMargin = (int) (width * slideOffset);
-                }
+                ViewCompat.setX(child, width * slideOffset);
 
 
             } else {
@@ -246,9 +266,10 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
     private class Setting {
-        float percentage = 1f;
-        int scrimColor = defaultScrimColor;
-        float elevation = 0;
+        public float percentage = 1f;
+        public int scrimColor = defaultScrimColor;
+        public float elevation = 0;
         public float drawerElevation = defaultDrawerElevation;
+        public float radius;
     }
 }

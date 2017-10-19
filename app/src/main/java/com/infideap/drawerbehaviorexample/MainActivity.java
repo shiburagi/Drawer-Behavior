@@ -9,6 +9,7 @@ import com.infideap.drawerbehaviorexample.drawer.AdvanceDrawer1Activity;
 import com.infideap.drawerbehaviorexample.drawer.AdvanceDrawer2Activity;
 import com.infideap.drawerbehaviorexample.drawer.AdvanceDrawer3Activity;
 import com.infideap.drawerbehaviorexample.drawer.AdvanceDrawer4Activity;
+import com.infideap.drawerbehaviorexample.drawer.AdvanceDrawer5Activity;
 import com.infideap.drawerbehaviorexample.drawer.DefaultDrawerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.button_advance2).setOnClickListener(this);
         findViewById(R.id.button_advance3).setOnClickListener(this);
         findViewById(R.id.button_advance4).setOnClickListener(this);
+        findViewById(R.id.button_advance5).setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_advance4:
                 startActivity(new Intent(this, AdvanceDrawer4Activity.class));
+                break;
+            case R.id.button_advance5:
+                startActivity(new Intent(this, AdvanceDrawer5Activity.class));
                 break;
         }
     }
