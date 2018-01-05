@@ -118,6 +118,8 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        setting.scrimColor = Color.TRANSPARENT;
+        setting.drawerElevation = 0;
         setting.elevation = elevation;
     }
 
@@ -142,6 +144,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        setting.elevation = 0;
         setting.drawerElevation = elevation;
     }
 
@@ -266,10 +269,30 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
     private class Setting {
-        public float percentage = 1f;
-        public int scrimColor = defaultScrimColor;
-        public float elevation = 0;
-        public float drawerElevation = defaultDrawerElevation;
-        public float radius;
+        float percentage = 1f;
+        int scrimColor = defaultScrimColor;
+        float elevation = 0;
+        float drawerElevation = defaultDrawerElevation;
+        float radius;
+
+        public float getDrawerElevation() {
+            return drawerElevation;
+        }
+
+        public float getElevation() {
+            return elevation;
+        }
+
+        public float getPercentage() {
+            return percentage;
+        }
+
+        public float getRadius() {
+            return radius;
+        }
+
+        public int getScrimColor() {
+            return scrimColor;
+        }
     }
 }

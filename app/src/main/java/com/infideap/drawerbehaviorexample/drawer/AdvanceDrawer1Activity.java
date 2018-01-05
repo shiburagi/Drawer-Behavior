@@ -67,7 +67,7 @@ public class AdvanceDrawer1Activity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
-//        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -79,7 +79,7 @@ public class AdvanceDrawer1Activity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_right_drawer:
                 drawer.openDrawer(Gravity.END);
                 return true;
