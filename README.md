@@ -24,7 +24,7 @@ a dependency:
 #### Gradle
 ```groovy
 dependencies {
-   compile 'com.infideap.drawerbehavior:drawer-behavior:0.0.1'
+   compile 'com.infideap.drawerbehavior:drawer-behavior:0.0.2'
 }
 ```
 
@@ -98,6 +98,8 @@ drawer.setViewScale(Gravity.START, 0.9f); //set height scale for main view (0f t
 drawer.setViewElevation(Gravity.START, 20);//set main view elevation when drawer open (dimension)
 drawer.setViewScrimColor(Gravity.START, Color.TRANSPARENT);//set drawer overlay coloe (color)
 drawer.setDrawerElevation(Gravity.START, 20);//set drawer elevation (dimension)
+
+drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
 ```
 
 ## Contact
