@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 ext{
     PUBLISH_GROUP_ID= 'com.infideap.drawerbehavior'
     PUBLISH_ARTIFACT_ID= 'drawer-behavior'
-    PUBLISH_VERSION= '0.0.3'
+    PUBLISH_VERSION= '0.0.4'
 }
 android {
     compileSdkVersion 25
