@@ -107,7 +107,7 @@ For any enquiries, please send an email to tr32010@gmail.com.
 
 ## License
 
-    Copyright 2016-2017 Shiburagi
+    Copyright 2018 Shiburagi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
