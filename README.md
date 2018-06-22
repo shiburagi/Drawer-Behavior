@@ -123,7 +123,7 @@ drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimensi
 
 ### Advance 3D Drawer Layout
 ---
-![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-3d-1.gif)
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-3d-2.gif)
 
 ```xml
 <com.infideap.drawerbehavior.Advance3DDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
