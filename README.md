@@ -8,7 +8,12 @@ Drawer behavior is a library that provide an extra behavior on drawer, such as, 
 
 Android 9.0+ support
 
+---
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D9JKYQL8452AL)
+
 ## Including In Your Project
+
 If you are a Maven user you can easily include the library by specifying it as
 a dependency:
 
@@ -39,11 +44,6 @@ repositories {
 
 **or**,
 you can include it by **download this project** and **import /drawerbehavior** as **module**.
-
-## Donation
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D9JKYQL8452AL)
-
 
 ## How to use
 **Creating the layout**
