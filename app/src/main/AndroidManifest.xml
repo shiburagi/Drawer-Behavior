@@ -44,6 +44,10 @@
             android:name=".drawer.AdvanceDrawer5Activity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".drawer.Advance3DDrawer1Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
