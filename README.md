@@ -115,11 +115,12 @@ drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" draw
 
 #### Card Effect
 
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-card-1.gif)
+
+
 ```java
 drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
 ```
-
-![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-card-1.gif)
 
 ---
 
