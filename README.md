@@ -4,7 +4,7 @@
 
 Drawer behavior is a library that provide an extra behavior on drawer, such as, move view or scaling view's height while drawer on slide.
 
-![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/master/preview.gif)
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview1.gif)
 
 Android 9.0+ support
 
@@ -102,6 +102,14 @@ drawer.useCustomBehavior(Gravity.START); //assign custom behavior for "Left" dra
 drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" drawer 
 ```
 ---
+
+#### Card Effect
+
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-card-1.gif)
+
+```java
+drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
+```
 
 ### Advance 3D Drawer Layout
 ---
