@@ -24,14 +24,14 @@ a dependency:
 <dependency>
   <groupId>com.infideap.drawerbehavior</groupId>
   <artifactId>drawer-behavior</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```groovy
 dependencies {
-   compile 'com.infideap.drawerbehavior:drawer-behavior:0.0.4'
+   compile 'com.infideap.drawerbehavior:drawer-behavior:0.0.5'
 }
 ```
 
@@ -49,6 +49,9 @@ you can include it by **download this project** and **import /drawerbehavior** a
 
 ## How to use
 **Creating the layout**
+
+### Advance Drawer Layout
+
 ```xml
 <com.infideap.drawerbehavior.AdvanceDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -98,6 +101,59 @@ drawer = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
 drawer.useCustomBehavior(Gravity.START); //assign custom behavior for "Left" drawer
 drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" drawer 
 ```
+
+### Advance 3D Drawer Layout
+
+```xml
+<com.infideap.drawerbehavior.Advance3DDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:background="@color/colorPrimary"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_notification"
+        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="false">
+        <include layout="@layout/content_notification"/>
+    </android.support.design.widget.NavigationView>
+
+</com.infideap.drawerbehavior.Advance3DDrawerLayout>
+```
+
+**Initialize**
+```java
+drawer = (Advance3DDrawerLayout) findViewById(R.id.drawer_layout);
+```
+
+**Use custom behavior**
+```java
+drawer.setViewRotation(Gravity.START, 15); // set degree of Y-rotation ( value must greater than 0)
+```
+
 
 **Customize**
 ```java
