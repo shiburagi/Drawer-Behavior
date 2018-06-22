@@ -51,7 +51,7 @@ you can include it by **download this project** and **import /drawerbehavior** a
 **Creating the layout**
 
 ### Advance Drawer Layout
-
+---
 ```xml
 <com.infideap.drawerbehavior.AdvanceDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -101,9 +101,10 @@ drawer = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
 drawer.useCustomBehavior(Gravity.START); //assign custom behavior for "Left" drawer
 drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" drawer 
 ```
+---
 
 ### Advance 3D Drawer Layout
-
+---
 ![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-3d-1.gif)
 
 ```xml
@@ -155,7 +156,7 @@ drawer = (Advance3DDrawerLayout) findViewById(R.id.drawer_layout);
 ```java
 drawer.setViewRotation(Gravity.START, 15); // set degree of Y-rotation ( value must greater than 0)
 ```
-
+---
 
 **Customize**
 ```java
