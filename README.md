@@ -103,7 +103,7 @@ drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimensi
 ```
 ## Donation
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=27HXTQCZ5SE9C)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=27HXTQCZ5SE9C){:target="_blank"}
 
 
 ## Contact
