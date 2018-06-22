@@ -40,6 +40,11 @@ repositories {
 **or**,
 you can include it by **download this project** and **import /drawerbehavior** as **module**.
 
+## Donation
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D9JKYQL8452AL)
+
+
 ## How to use
 **Creating the layout**
 ```xml
@@ -101,10 +106,6 @@ drawer.setDrawerElevation(Gravity.START, 20);//set drawer elevation (dimension)
 
 drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
 ```
-## Donation
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D9JKYQL8452AL)
-
 
 ## Contact
 For any enquiries, please send an email to tr32010@gmail.com. 
