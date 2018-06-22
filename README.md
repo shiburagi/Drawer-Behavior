@@ -2,11 +2,21 @@
 [ ![Download](https://api.bintray.com/packages/infideap2/Drawer-Behavior/Drawer-Behavior/images/download.svg?version=0.0.5) ](https://bintray.com/infideap2/Drawer-Behavior/Drawer-Behavior/0.0.5/link)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Drawer--Behavior-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6239)
 
-Drawer behavior is a library that provide an extra behavior on drawer, such as, move view or scaling view's height while drawer on slide.
+Drawer behavior is a library used **[Android DrawerLayout Support library](https://developer.android.com/training/implementing-navigation/nav-drawer)** as **Parent Class [Easy to migrate]**, that provide an **extra behavior on drawer**, such as, move view or scaling view's height while drawer on slide. 
 
+If current project use **Android DrawerLayout Support library** and kinda boring with the effec. Then, just **change the layout code** and **calling** necessary **method for animation/effect**.
+
+## New update
+ * New drawer class with 3D effect
+ * Card Effect 
+ 
+## Features
+ * Zoom in & Zoom out effect
+ * X-Translation effect
+ 
 ![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview1.gif)
 
-Android 9.0+ support
+**Android 9.0+ support**
 
 ---
 
