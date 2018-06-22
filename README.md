@@ -104,6 +104,8 @@ drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" draw
 
 ### Advance 3D Drawer Layout
 
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview-3d-1.gif)
+
 ```xml
 <com.infideap.drawerbehavior.Advance3DDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
