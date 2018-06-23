@@ -175,7 +175,7 @@ drawer = (Advance3DDrawerLayout) findViewById(R.id.drawer_layout);
 
 **Use custom behavior**
 ```java
-drawer.setViewRotation(Gravity.START, 15); // set degree of Y-rotation ( value must greater than 0)
+drawer.setViewRotation(Gravity.START, 15); // set degree of Y-rotation ( value : 0 -> 45)
 ```
 ---
 
