@@ -41,7 +41,7 @@ a dependency:
 #### Gradle
 ```groovy
 dependencies {
-   compile 'com.infideap.drawerbehavior:drawer-behavior:0.0.5'
+   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.0.5'
 }
 ```
 
