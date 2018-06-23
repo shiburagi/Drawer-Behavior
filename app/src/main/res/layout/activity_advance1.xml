@@ -9,10 +9,6 @@
     android:background="@color/colorWhite"
     tools:openDrawer="start">
 
-    <include
-        layout="@layout/app_bar_default"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -33,5 +29,10 @@
         android:fitsSystemWindows="false">
         <include layout="@layout/content_notification"/>
     </android.support.design.widget.NavigationView>
+
+    <include
+        layout="@layout/app_bar_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </com.infideap.drawerbehavior.AdvanceDrawerLayout>

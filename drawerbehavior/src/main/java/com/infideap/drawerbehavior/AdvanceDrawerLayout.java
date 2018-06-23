@@ -75,7 +75,6 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         });
 
         frameLayout = new FrameLayout(context);
-
         super.addView(frameLayout);
 
     }
@@ -94,7 +93,6 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else {
             CardView cardView = new CardView(getContext());
             cardView.setRadius(0);
-            cardView.setClipToPadding(false);
             cardView.addView(child);
             cardView.setCardElevation(0);
             frameLayout.addView(cardView);
@@ -234,12 +232,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
                 super.setScrimColor(setting.scrimColor);
                 super.setDrawerElevation(setting.drawerElevation);
                 float percentage = 1f - setting.percentage;
-                float reduceHeight = getHeight() * percentage * slideOffset;
-                FrameLayout.LayoutParams params
-                        = (FrameLayout.LayoutParams) child.getLayoutParams();
-                params.topMargin = (int) (reduceHeight / 2);
-                params.bottomMargin = (int) (reduceHeight / 2);
-                child.setLayoutParams(params);
+                ViewCompat.setScaleY(child, 1f - percentage * slideOffset);
                 child.setCardElevation(setting.elevation * slideOffset);
                 adjust = setting.elevation;
                 boolean isLeftDrawer = childAbsGravity == absHorizGravity;

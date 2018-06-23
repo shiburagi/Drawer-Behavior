@@ -24,7 +24,7 @@ public class Advance3DDrawer1Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_advance6);
+        setContentView(R.layout.activity_advance_3d_1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -48,8 +48,9 @@ public class Advance3DDrawer1Activity extends AppCompatActivity
 
         drawer.setViewScale(Gravity.START, 0.96f);
         drawer.setRadius(Gravity.START, 20);
-        drawer.setViewElevation(Gravity.START, 15);
+        drawer.setViewElevation(Gravity.START, 8);
         drawer.setViewRotation(Gravity.START, 15);
+
 
 
     }

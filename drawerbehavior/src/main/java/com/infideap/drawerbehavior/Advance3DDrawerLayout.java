@@ -2,8 +2,6 @@ package com.infideap.drawerbehavior;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
@@ -11,11 +9,9 @@ import android.util.AttributeSet;
 /**
  * Created by Shiburagi on 21/09/2017.
  */
-@RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
     private static final String TAG = Advance3DDrawerLayout.class.getSimpleName();
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public Advance3DDrawerLayout(Context context) {
         super(context);
     }
@@ -29,19 +25,21 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
         super(context, attrs, defStyle);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     void updateSlideOffset(CardView child, AdvanceDrawerLayout.Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
         updateSlideOffset(child, (Setting) setting, width, slideOffset, isLeftDrawer);
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     void updateSlideOffset(CardView child, Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
         if (setting.degree > 0) {
-            child.setRotationY((isLeftDrawer ? -1 : 1) * setting.degree * slideOffset);
-        }
-        ViewCompat.setX(child, width * slideOffset);
+            float percentage = (setting.degree) / 90f;
+
+            ViewCompat.setX(child, width * slideOffset - (child.getWidth()/2) * percentage * slideOffset);
+            ViewCompat.setRotationY(child, (isLeftDrawer ? -1 : 1) * setting.degree * slideOffset);
+
+        } else
+            super.updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer);
 
 
     }
@@ -51,7 +49,6 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
         return new Setting();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public void setViewRotation(int gravity, float degree) {
         int absGravity = getDrawerViewAbsoluteGravity(gravity);
         Setting setting;
@@ -61,7 +58,7 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
         } else
             setting = (Setting) settings.get(absGravity);
 
-        setting.degree = degree;
+        setting.degree = degree > 45 ? 45 : degree;
 
         setting.scrimColor = Color.TRANSPARENT;
         setting.drawerElevation = 0;

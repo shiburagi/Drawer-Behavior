@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Drawer-Behavior.iml" filepath="$PROJECT_DIR$/Drawer-Behavior.iml" />
       <module fileurl="file://$PROJECT_DIR$/DrawerBehaviorExample.iml" filepath="$PROJECT_DIR$/DrawerBehaviorExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" filepath="$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" />
       <module fileurl="file://$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" filepath="$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" />
     </modules>
   </component>
