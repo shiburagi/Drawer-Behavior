@@ -34,14 +34,14 @@ a dependency:
 <dependency>
   <groupId>com.infideap.drawerbehavior</groupId>
   <artifactId>drawer-behavior</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.7</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```groovy
 dependencies {
-   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.0.5'
+   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.0.7'
 }
 ```
 
