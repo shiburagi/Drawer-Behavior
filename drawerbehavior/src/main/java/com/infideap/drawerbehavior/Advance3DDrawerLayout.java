@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
+import android.view.View;
 
 /**
  * Created by Shiburagi on 21/09/2017.
@@ -26,7 +27,7 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
     }
 
     @Override
-    void updateSlideOffset(CardView child, AdvanceDrawerLayout.Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
+    void updateSlideOffset(View child, AdvanceDrawerLayout.Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
         updateSlideOffset(child, (Setting) setting, width, slideOffset, isLeftDrawer);
 
     }
@@ -58,6 +59,7 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
         } else
             setting = (Setting) settings.get(absGravity);
 
+        assert setting != null;
         setting.degree = degree > 45 ? 45 : degree;
 
         setting.scrimColor = Color.TRANSPARENT;
