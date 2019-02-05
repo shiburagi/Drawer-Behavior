@@ -232,13 +232,15 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
         boolean isRtl = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            isRtl = getActivity(getContext()).getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+            isRtl = getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ||
+                    getActivity(getContext()).getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ||
+                    getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
         }
 
         for (int i = 0; i < frameLayout.getChildCount(); i++) {
             CardView child = (CardView) frameLayout.getChildAt(i);
             Setting setting = settings.get(childAbsGravity);
-            float adjust = 0;
+            float adjust;
 
             if (setting != null) {
 
@@ -271,7 +273,8 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     Activity getActivity(Context context) {
         if (context == null) return null;
         if (context instanceof Activity) return (Activity) context;
-        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        if (context instanceof ContextWrapper)
+            return getActivity(((ContextWrapper) context).getBaseContext());
         return null;
     }
 
@@ -289,6 +292,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
 
     int getDrawerViewAbsoluteGravity(int gravity) {
+
         return GravityCompat.getAbsoluteGravity(gravity, ViewCompat.getLayoutDirection(this)) & Gravity.HORIZONTAL_GRAVITY_MASK;
 
     }

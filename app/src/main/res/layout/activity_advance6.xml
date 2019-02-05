@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorWhite"
-    android:layout_gravity="end"
-    tools:openDrawer="end">
+    android:layout_gravity="start"
+    app:chainUseRtl="true"
+    tools:openDrawer="start">
 
 
     <android.support.design.widget.NavigationView

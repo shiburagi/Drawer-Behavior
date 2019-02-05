@@ -1,14 +1,19 @@
 package com.infideap.drawerbehaviorexample.drawer;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +22,8 @@ import android.view.View;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 import com.infideap.drawerbehaviorexample.R;
 
+import java.util.Locale;
+
 public class AdvanceDrawer6Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,9 +31,6 @@ public class AdvanceDrawer6Activity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advance6);
@@ -42,7 +46,13 @@ public class AdvanceDrawer6Activity extends AppCompatActivity
             }
         });
 
+
         drawer = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            ViewCompat.setLayoutDirection(drawer, View.LAYOUT_DIRECTION_RTL);
+        }
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -51,12 +61,31 @@ public class AdvanceDrawer6Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawer.setViewScale(Gravity.START, 0.9f);
-        drawer.setRadius(Gravity.START, 35);
-        drawer.setViewElevation(Gravity.START, 20);
+
+        drawer.setViewScale(GravityCompat.START, 0.9f);
+        drawer.setRadius(GravityCompat.START, 35);
+        drawer.setViewElevation(GravityCompat.START, 20);
 
 
     }
+
+    @SuppressWarnings("deprecation")
+    private void setLocale(Locale locale) {
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            configuration.setLocale(locale);
+        } else {
+            configuration.locale = locale;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            getApplicationContext().createConfigurationContext(configuration);
+        } else {
+            resources.updateConfiguration(configuration, displayMetrics);
+        }
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -85,7 +114,7 @@ public class AdvanceDrawer6Activity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_right_drawer:
                 drawer.openDrawer(Gravity.END);
                 return true;
