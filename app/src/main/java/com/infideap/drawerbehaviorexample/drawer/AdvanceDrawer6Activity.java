@@ -1,11 +1,11 @@
 package com.infideap.drawerbehaviorexample.drawer;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,15 +17,19 @@ import android.view.View;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 import com.infideap.drawerbehaviorexample.R;
 
-public class AdvanceDrawer1Activity extends AppCompatActivity
+public class AdvanceDrawer6Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AdvanceDrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_advance1);
+        setContentView(R.layout.activity_advance6);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,8 +51,10 @@ public class AdvanceDrawer1Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawer.useCustomBehavior(Gravity.START);
-        drawer.useCustomBehavior(Gravity.END);
+        drawer.setViewScale(Gravity.START, 0.9f);
+        drawer.setRadius(Gravity.START, 35);
+        drawer.setViewElevation(Gravity.START, 20);
+
 
     }
 
@@ -79,7 +85,7 @@ public class AdvanceDrawer1Activity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId()){
             case R.id.action_right_drawer:
                 drawer.openDrawer(Gravity.END);
                 return true;

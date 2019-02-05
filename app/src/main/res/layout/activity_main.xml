@@ -69,8 +69,16 @@
                 android:text="Advance 5 (Card)" />
 
             <com.app.infideap.stylishwidget.view.AButton
-                android:id="@+id/button_advance_3d_1"
+                android:id="@+id/button_advance6"
                 style="@style/Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:text="Advance 5 (RTL)" />
+
+            <com.app.infideap.stylishwidget.view.AButton
+                android:id="@+id/button_advance_3d_1"
+                style="@style/Button.Accent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="15"

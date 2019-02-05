@@ -1,6 +1,8 @@
 package com.infideap.drawerbehavior;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
@@ -77,7 +79,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         });
 
         frameLayout = new FrameLayout(context);
-        frameLayout.setPadding(0,0,0,0);
+        frameLayout.setPadding(0, 0, 0, 0);
         super.addView(frameLayout);
 
     }
@@ -228,6 +230,10 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         final int absHorizGravity = getDrawerViewAbsoluteGravity(Gravity.START);
         final int childAbsGravity = getDrawerViewAbsoluteGravity(drawerView);
 
+        boolean isRtl = false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            isRtl = getActivity(getContext()).getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+        }
 
         for (int i = 0; i < frameLayout.getChildCount(); i++) {
             CardView child = (CardView) frameLayout.getChildAt(i);
@@ -243,7 +249,11 @@ public class AdvanceDrawerLayout extends DrawerLayout {
                 ViewCompat.setScaleY(child, 1f - percentage * slideOffset);
                 child.setCardElevation(setting.elevation * slideOffset);
                 adjust = setting.elevation;
-                boolean isLeftDrawer = childAbsGravity == absHorizGravity;
+                boolean isLeftDrawer;
+                if (isRtl)
+                    isLeftDrawer = childAbsGravity != absHorizGravity;
+                else
+                    isLeftDrawer = childAbsGravity == absHorizGravity;
                 float width = isLeftDrawer ?
                         drawerView.getWidth() + adjust : -drawerView.getWidth() - adjust;
                 updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer);
@@ -256,6 +266,13 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
         }
 
+    }
+
+    Activity getActivity(Context context) {
+        if (context == null) return null;
+        if (context instanceof Activity) return (Activity) context;
+        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        return null;
     }
 
     void updateSlideOffset(View child, Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
