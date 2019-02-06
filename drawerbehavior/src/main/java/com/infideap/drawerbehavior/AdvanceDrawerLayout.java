@@ -307,13 +307,17 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
             if (setting != null) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && setting.percentage < 1.0) {
-                    int bgColor = ((ColorDrawable) drawerView.getBackground()).getColor();
-                    window.getDecorView().setBackgroundColor(bgColor);
-                    int color = ColorUtils.setAlphaComponent(statusBarColor, (int) (255 - 255 * slideOffset));
-                    window.setStatusBarColor(color);
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        setSystemUiVisibility(ColorUtils.calculateContrast(Color.WHITE, bgColor) < contrastThreshold && slideOffset > 0.4 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+                    if (drawerView.getBackground() instanceof ColorDrawable) {
+
+                        int color = ColorUtils.setAlphaComponent(statusBarColor, (int) (255 - 255 * slideOffset));
+                        window.setStatusBarColor(color);
+
+                        int bgColor = ((ColorDrawable) drawerView.getBackground()).getColor();
+                        window.getDecorView().setBackgroundColor(bgColor);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            setSystemUiVisibility(ColorUtils.calculateContrast(Color.WHITE, bgColor) < contrastThreshold && slideOffset > 0.4 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+                        }
                     }
 
 
