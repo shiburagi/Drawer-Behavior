@@ -27,7 +27,7 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
     }
 
     @Override
-    void updateSlideOffset(View child, AdvanceDrawerLayout.Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
+    void updateSlideOffset(CardView child, AdvanceDrawerLayout.Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
         updateSlideOffset(child, (Setting) setting, width, slideOffset, isLeftDrawer);
 
     }

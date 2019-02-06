@@ -1,22 +1,33 @@
 package com.infideap.drawerbehavior;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import java.util.HashMap;
@@ -32,6 +43,9 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     private float defaultDrawerElevation;
     private FrameLayout frameLayout;
     public View drawerView;
+    private int statusBarColor;
+    private boolean defaultFitsSystemWindows;
+    private float contrastThreshold = 3;
 
     public AdvanceDrawerLayout(Context context) {
         super(context);
@@ -54,6 +68,12 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
         defaultDrawerElevation = getDrawerElevation();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            defaultFitsSystemWindows = getFitsSystemWindows();
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            statusBarColor = getActivity().getWindow().getStatusBarColor();
+        }
         addDrawerListener(new DrawerListener() {
 
             @Override
@@ -85,6 +105,36 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
 
+//    @Override
+//    public void setFitsSystemWindows(boolean fitSystemWindows) {
+////        defaultFitsSystemWindows = fitSystemWindows;
+//
+//        super.setFitsSystemWindows(fitSystemWindows);
+//
+//        if (ViewCompat.getFitsSystemWindows(this)) {
+//            if (Build.VERSION.SDK_INT >= 21) {
+//                this.setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {
+//                    @SuppressLint("RestrictedApi")
+//                    public WindowInsets onApplyWindowInsets(View view, WindowInsets insets) {
+//                        DrawerLayout drawerLayout = (DrawerLayout)view;
+//                        drawerLayout.setChildInsets(insets, insets.getSystemWindowInsetTop() > 0);
+//                        return insets.consumeSystemWindowInsets();
+//                    }
+//                });
+//                this.setSystemUiVisibility(1280);
+//                TypedArray a = getC.obtainStyledAttributes(THEME_ATTRS);
+//
+//                try {
+//                    this.mStatusBarBackground = a.getDrawable(0);
+//                } finally {
+//                    a.recycle();
+//                }
+//            } else {
+//                this.mStatusBarBackground = null;
+//            }
+//        }
+//    }
+
     @Override
     public void addView(View child, ViewGroup.LayoutParams params) {
         child.setLayoutParams(params);
@@ -100,8 +150,6 @@ public class AdvanceDrawerLayout extends DrawerLayout {
             cardView.setRadius(0);
             cardView.addView(child);
             cardView.setCardElevation(0);
-//            int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
-//            cardView.setContentPadding(-padding,-padding,-padding,-padding);
             if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 cardView.setContentPadding(-6, -9, -6, -9);
             }
@@ -118,7 +166,14 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        assert setting != null;
         setting.percentage = percentage;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            if (percentage < 1) {
+                setStatusBarBackground(null);
+                setSystemUiVisibility(0);
+            }
+        }
 
         setting.scrimColor = Color.TRANSPARENT;
         setting.drawerElevation = 0;
@@ -133,6 +188,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        assert setting != null;
         setting.scrimColor = Color.TRANSPARENT;
         setting.drawerElevation = 0;
         setting.elevation = elevation;
@@ -147,6 +203,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        assert setting != null;
         setting.scrimColor = scrimColor;
     }
 
@@ -159,6 +216,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         } else
             setting = settings.get(absGravity);
 
+        assert setting != null;
         setting.elevation = 0;
         setting.drawerElevation = elevation;
     }
@@ -230,19 +288,36 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         final int absHorizGravity = getDrawerViewAbsoluteGravity(Gravity.START);
         final int childAbsGravity = getDrawerViewAbsoluteGravity(drawerView);
 
+        Activity activity = getActivity();
+        Window window = activity.getWindow();
+
+
         boolean isRtl = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             isRtl = getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ||
-                    getActivity(getContext()).getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ||
+                    window.getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ||
                     getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
         }
 
         for (int i = 0; i < frameLayout.getChildCount(); i++) {
+
             CardView child = (CardView) frameLayout.getChildAt(i);
             Setting setting = settings.get(childAbsGravity);
             float adjust;
 
             if (setting != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && setting.percentage < 1.0) {
+                    int bgColor = ((ColorDrawable) drawerView.getBackground()).getColor();
+                    window.getDecorView().setBackgroundColor(bgColor);
+                    int color = ColorUtils.setAlphaComponent(statusBarColor, (int) (255 - 255 * slideOffset));
+                    window.setStatusBarColor(color);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        setSystemUiVisibility(ColorUtils.calculateContrast(Color.WHITE, bgColor) < contrastThreshold && slideOffset > 0.4 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+                    }
+
+
+                }
 
                 child.setRadius((int) (setting.radius * slideOffset));
                 super.setScrimColor(setting.scrimColor);
@@ -270,6 +345,14 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
     }
 
+    public void setContrastThreshold(float contrastThreshold) {
+        this.contrastThreshold = contrastThreshold;
+    }
+
+    Activity getActivity() {
+        return getActivity(getContext());
+    }
+
     Activity getActivity(Context context) {
         if (context == null) return null;
         if (context instanceof Activity) return (Activity) context;
@@ -278,7 +361,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         return null;
     }
 
-    void updateSlideOffset(View child, Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
+    void updateSlideOffset(CardView child, Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
         ViewCompat.setX(child, width * slideOffset);
     }
 
@@ -308,6 +391,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
     class Setting {
+        boolean fitsSystemWindows;
         float percentage = 1f;
         int scrimColor = defaultScrimColor;
         float elevation = 0;
