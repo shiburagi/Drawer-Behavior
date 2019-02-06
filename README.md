@@ -184,11 +184,11 @@ drawer.setViewRotation(Gravity.START, 15); // set degree of Y-rotation ( value :
 **Customize**
 ```java
 drawer.setViewScale(Gravity.START, 0.9f); //set height scale for main view (0f to 1f)
-drawer.setViewElevation(Gravity.START, 20);//set main view elevation when drawer open (dimension)
-drawer.setViewScrimColor(Gravity.START, Color.TRANSPARENT);//set drawer overlay coloe (color)
-drawer.setDrawerElevation(Gravity.START, 20);//set drawer elevation (dimension)
-drawer.setContrastThreshold(3);
-drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
+drawer.setViewElevation(Gravity.START, 20); //set main view elevation when drawer open (dimension)
+drawer.setViewScrimColor(Gravity.START, Color.TRANSPARENT); //set drawer overlay coloe (color)
+drawer.setDrawerElevation(Gravity.START, 20); //set drawer elevation (dimension)
+drawer.setContrastThreshold(3); //set maximum of contrast ratio between white text and background color.
+drawer.setRadius(Gravity.START, 25); //set end container's corner radius (dimension)
 ```
 
 ## Contact
