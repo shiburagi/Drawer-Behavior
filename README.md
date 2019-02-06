@@ -6,6 +6,7 @@ Drawer behavior is a library use **[Android DrawerLayout Support library](https:
 
 If current project use **Android DrawerLayout Support library** and kinda boring with the effect. Then, just **change the layout code** and **calling** necessary **method for animation/effect**.
 
+
 ## New update
  * Transparent status bar for scale effect
  * Support RTL
@@ -15,6 +16,9 @@ If current project use **Android DrawerLayout Support library** and kinda boring
  * Card Effect 
  * Zoom in & Zoom out effect
  * X-Translation effect
+ 
+For **Flutter** (Still in development) : [Drawer-Behavior-Flutter](https://github.com/shiburagi/Drawer-Behavior-Flutter)
+
  
 ![Alt Text](https://raw.githubusercontent.com/shiburagi/Drawer-Behavior/preview/gif/preview1.gif)
 
@@ -58,6 +62,8 @@ repositories {
 
 **or**,
 you can include it by **download this project** and **import /drawerbehavior** as **module**.
+
+
 
 ## How to use
 **Creating the layout**
