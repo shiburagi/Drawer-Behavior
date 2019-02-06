@@ -7,10 +7,12 @@ Drawer behavior is a library use **[Android DrawerLayout Support library](https:
 If current project use **Android DrawerLayout Support library** and kinda boring with the effect. Then, just **change the layout code** and **calling** necessary **method for animation/effect**.
 
 ## New update
- * New drawer class with 3D effect
- * Card Effect 
+ * Transparent status bar for scale effect
+ * Support RTL
  
 ## Features
+ * New drawer class with 3D effect
+ * Card Effect 
  * Zoom in & Zoom out effect
  * X-Translation effect
  
@@ -34,14 +36,14 @@ a dependency:
 <dependency>
   <groupId>com.infideap.drawerbehavior</groupId>
   <artifactId>drawer-behavior</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.4</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```groovy
 dependencies {
-   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.1.1'
+   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.1.4'
 }
 ```
 
@@ -185,7 +187,7 @@ drawer.setViewScale(Gravity.START, 0.9f); //set height scale for main view (0f t
 drawer.setViewElevation(Gravity.START, 20);//set main view elevation when drawer open (dimension)
 drawer.setViewScrimColor(Gravity.START, Color.TRANSPARENT);//set drawer overlay coloe (color)
 drawer.setDrawerElevation(Gravity.START, 20);//set drawer elevation (dimension)
-
+drawer.setContrastThreshold(3);
 drawer.setRadius(Gravity.START, 25);//set end container's corner radius (dimension)
 ```
 
