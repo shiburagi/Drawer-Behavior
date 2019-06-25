@@ -2,10 +2,9 @@ package com.infideap.drawerbehavior;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.CardView;
+import androidx.core.view.ViewCompat;
+import androidx.cardview.widget.CardView;
 import android.util.AttributeSet;
-import android.view.View;
 
 /**
  * Created by Shiburagi on 21/09/2017.
