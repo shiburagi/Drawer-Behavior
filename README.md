@@ -8,6 +8,7 @@ If current project use **Android DrawerLayout Support library** and kinda boring
 
 
 ## New update
+ * **Migrate to AndroidX**
  * Transparent status bar for scale effect
  * Support RTL
  
@@ -40,14 +41,14 @@ a dependency:
 <dependency>
   <groupId>com.infideap.drawerbehavior</groupId>
   <artifactId>drawer-behavior</artifactId>
-  <version>0.1.5</version>
+  <version>0.2.1</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```groovy
 dependencies {
-   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.1.5'
+   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.2.1'
 }
 ```
 
