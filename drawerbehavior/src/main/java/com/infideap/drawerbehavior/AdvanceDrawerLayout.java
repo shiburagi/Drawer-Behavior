@@ -64,9 +64,10 @@ public class AdvanceDrawerLayout extends DrawerLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             defaultFitsSystemWindows = getFitsSystemWindows();
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            statusBarColor = getActivity().getWindow().getStatusBarColor();
-        }
+        if (!isInEditMode())
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                statusBarColor = getActivity().getWindow().getStatusBarColor();
+            }
         addDrawerListener(new DrawerListener() {
 
             @Override
