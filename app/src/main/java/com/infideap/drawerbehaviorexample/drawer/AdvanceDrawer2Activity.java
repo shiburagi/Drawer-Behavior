@@ -81,7 +81,7 @@ public class AdvanceDrawer2Activity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_right_drawer:
-                drawer.openDrawer(Gravity.END);
+                drawer.openDrawer(GravityCompat.END);
                 return true;
         }
         return super.onOptionsItemSelected(item);

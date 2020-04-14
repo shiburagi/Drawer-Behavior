@@ -1,9 +1,6 @@
 apply plugin: 'com.android.library'
-ext{
-    PUBLISH_GROUP_ID= 'com.infideap.drawerbehavior'
-    PUBLISH_ARTIFACT_ID= 'drawer-behavior'
-    PUBLISH_VERSION= '0.2.2'
-}
+apply plugin: 'com.novoda.bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
+
 android {
     compileSdkVersion 28
 
@@ -39,5 +36,17 @@ dependencies {
 
 }
 
-apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/' +
-        'master/android-release-aar.gradle'
+publish {
+    def groupProjectID = 'com.infideap.drawerbehavior'
+    def artifactProjectID = 'drawer-behavior'
+    def publishVersionID = '1.0.0'
+
+    userOrg = 'infideap2'
+    repoName = "Drawer-Behavior"
+    uploadName = "Drawer-Behavior"
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = ''
+    website = 'https://github.com/shiburagi/Drawer-Behavior'
+}

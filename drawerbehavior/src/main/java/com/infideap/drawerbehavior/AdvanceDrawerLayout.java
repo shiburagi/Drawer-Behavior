@@ -370,7 +370,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
     void updateSlideOffset(CardView child, Setting setting, float width, float slideOffset, boolean isLeftDrawer) {
-        ViewCompat.setX(child, width * slideOffset);
+        child.setX(width * slideOffset);
     }
 
 
