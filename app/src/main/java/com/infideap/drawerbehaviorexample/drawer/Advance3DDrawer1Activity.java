@@ -46,10 +46,10 @@ public class Advance3DDrawer1Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawer.setViewScale(Gravity.START, 0.96f);
-        drawer.setRadius(Gravity.START, 20);
-        drawer.setViewElevation(Gravity.START, 8);
-        drawer.setViewRotation(Gravity.START, 15);
+        drawer.setViewScale(GravityCompat.START, 0.96f);
+        drawer.setRadius(GravityCompat.START, 20);
+        drawer.setViewElevation(GravityCompat.START, 8);
+        drawer.setViewRotation(GravityCompat.START, 15);
 
 
 

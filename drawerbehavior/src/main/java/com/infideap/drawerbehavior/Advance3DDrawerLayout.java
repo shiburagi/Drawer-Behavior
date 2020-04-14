@@ -35,8 +35,8 @@ public class Advance3DDrawerLayout extends AdvanceDrawerLayout {
         if (setting.degree > 0) {
             float percentage = (setting.degree) / 90f;
 
-            ViewCompat.setX(child, width * slideOffset - (child.getWidth()/2) * percentage * slideOffset);
-            ViewCompat.setRotationY(child, (isLeftDrawer ? -1 : 1) * setting.degree * slideOffset);
+            child.setX( width * slideOffset - (child.getWidth()/2.0f) * percentage * slideOffset);
+            child.setRotationY((isLeftDrawer ? -1 : 1) * setting.degree * slideOffset);
 
         } else
             super.updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer);

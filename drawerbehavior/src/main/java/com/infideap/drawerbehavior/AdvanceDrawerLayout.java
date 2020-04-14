@@ -280,7 +280,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     }
 
     private void updateSlideOffset(View drawerView, float slideOffset) {
-        final int absHorizGravity = getDrawerViewAbsoluteGravity(Gravity.START);
+        final int absHorizGravity = getDrawerViewAbsoluteGravity(GravityCompat.START);
         final int childAbsGravity = getDrawerViewAbsoluteGravity(drawerView);
 
         Activity activity = getActivity();
@@ -384,7 +384,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
     int getDrawerViewAbsoluteGravity(int gravity) {
 
-        return GravityCompat.getAbsoluteGravity(gravity, ViewCompat.getLayoutDirection(this)) & Gravity.HORIZONTAL_GRAVITY_MASK;
+        return GravityCompat.getAbsoluteGravity(gravity, ViewCompat.getLayoutDirection(this)) & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
 
     }
 
