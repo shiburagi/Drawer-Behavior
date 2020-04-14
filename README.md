@@ -8,6 +8,7 @@ If current project use **Android DrawerLayout Support library** and kinda boring
 
 
 ## New update
+ * **Support for get color from MaterialShapeDrawable** ([CamiloDelReal](https://github.com/CamiloDelReal))
  * Fix preview issue
  * **Migrate to AndroidX**
  * Transparent status bar for scale effect
@@ -42,14 +43,14 @@ a dependency:
 <dependency>
   <groupId>com.infideap.drawerbehavior</groupId>
   <artifactId>drawer-behavior</artifactId>
-  <version>0.2.2</version>
+  <version>1.0.0</version>
   <type>pom</type>
 </dependency>
 ```
 #### Gradle
 ```groovy
 dependencies {
-   implementation 'com.infideap.drawerbehavior:drawer-behavior:0.2.2'
+   implementation 'com.infideap.drawerbehavior:drawer-behavior:1.0.0'
 }
 ```
 
@@ -118,8 +119,8 @@ drawer = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
 
 **Use custom behavior**
 ```java
-drawer.useCustomBehavior(Gravity.START); //assign custom behavior for "Left" drawer
-drawer.useCustomBehavior(Gravity.END); //assign custom behavior for "Right" drawer 
+drawer.useCustomBehavior(GravityCompat.START); //assign custom behavior for "Left" drawer
+drawer.useCustomBehavior(GravityCompat.END); //assign custom behavior for "Right" drawer 
 ```
 ---
 
