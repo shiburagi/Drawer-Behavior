@@ -22,6 +22,7 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.shape.MaterialShapeDrawable;
 
 import java.util.HashMap;
 
@@ -312,8 +313,17 @@ public class AdvanceDrawerLayout extends DrawerLayout {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             setSystemUiVisibility(ColorUtils.calculateContrast(Color.WHITE, bgColor) < contrastThreshold && slideOffset > 0.4 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
                         }
-                    }
+                    } else if (drawerView.getBackground() instanceof MaterialShapeDrawable
+                                && ((MaterialShapeDrawable) drawerView.getBackground()).getFillColor() != null) {
+                        int color = ColorUtils.setAlphaComponent(statusBarColor, (int) (255 - 255 * slideOffset));
+                        window.setStatusBarColor(color);
 
+                        int bgColor = ((MaterialShapeDrawable) drawerView.getBackground()).getFillColor().getDefaultColor();
+                        window.getDecorView().setBackgroundColor(bgColor);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            setSystemUiVisibility(ColorUtils.calculateContrast(Color.WHITE, bgColor) < contrastThreshold && slideOffset > 0.4 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+                        }
+                    }
 
                 }
 
