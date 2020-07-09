@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -40,6 +42,7 @@ public class AdvanceDrawerLayout extends DrawerLayout {
     private int statusBarColor;
     private boolean defaultFitsSystemWindows;
     private float contrastThreshold = 3;
+    private Drawable cardBackground = null;
 
     public AdvanceDrawerLayout(Context context) {
         super(context);
@@ -61,6 +64,9 @@ public class AdvanceDrawerLayout extends DrawerLayout {
 
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.advDrawerLayout);
+        cardBackground = a.getDrawable(R.styleable.advDrawerLayout_adl_cardBackground);
+        a.recycle();
         defaultDrawerElevation = getDrawerElevation();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             defaultFitsSystemWindows = getFitsSystemWindows();
@@ -145,7 +151,13 @@ public class AdvanceDrawerLayout extends DrawerLayout {
             cardView.setRadius(0);
             cardView.addView(child);
             cardView.setCardElevation(0);
-            if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                cardView.setBackground(cardBackground);
+            }
+            else{
+                cardView.setBackgroundDrawable(cardBackground);
+            }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 cardView.setContentPadding(-6, -9, -6, -9);
             }
             frameLayout.addView(cardView);
