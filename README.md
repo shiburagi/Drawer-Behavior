@@ -8,7 +8,7 @@ If current project use **Android DrawerLayout Support library** and kinda boring
 
 
 ## New update
- * Change Card barkground color
+ * Change **Card barkground** color ([Jazcorra-Zero](https://github.com/jazcorra-zero))
  * **Support for get color from MaterialShapeDrawable** ([CamiloDelReal](https://github.com/CamiloDelReal))
  * Fix preview issue
  * **Migrate to AndroidX**
