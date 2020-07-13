@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Drawer-Behavior.iml" filepath="$PROJECT_DIR$/Drawer-Behavior.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" filepath="$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Drawer-Behavior.iml" filepath="$PROJECT_DIR$/Drawer-Behavior.iml" group="Drawer-Behavior" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Drawer-Behavior/app" />
+      <module fileurl="file://$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" filepath="$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" group="Drawer-Behavior/drawerbehavior" />
     </modules>
   </component>
 </project>
