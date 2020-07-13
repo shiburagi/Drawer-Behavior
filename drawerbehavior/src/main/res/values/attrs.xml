@@ -6,5 +6,6 @@
         <attr name="adl_viewScrimColor" format="color" />
         <attr name="adl_viewElevation" format="dimension" />
         <attr name="adl_drawerElevation" format="dimension" />
+        <attr name="adl_cardBackgroundColor" format="reference|color" />
     </declare-styleable>
 </resources>
