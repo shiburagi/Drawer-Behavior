@@ -27,7 +27,7 @@ If current project use **Android DrawerLayout Support library** and kinda boring
 
 ---
 
-### For **Flutter** (Still in development) : [Drawer-Behavior-Flutter](https://github.com/shiburagi/Drawer-Behavior-Flutter)
+### For **Flutter** : [Drawer-Behavior-Flutter](https://github.com/shiburagi/Drawer-Behavior-Flutter)
 
 ---
 
