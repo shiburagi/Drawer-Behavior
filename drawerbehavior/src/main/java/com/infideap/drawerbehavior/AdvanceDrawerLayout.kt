@@ -20,7 +20,6 @@ import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.MaterialShapeDrawable
-import com.infideap.drawerbehavior.AdvanceDrawerLayout
 import java.util.*
 
 /**
@@ -35,7 +34,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
     private var statusBarColor = 0
     private var defaultFitsSystemWindows = false
     private var contrastThreshold = 3f
-    private var cardColor = 0
+    private var cardBackgroundColor = 0
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)
@@ -52,7 +51,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
     @SuppressLint("CustomViewStyleable")
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.advDrawerLayout)
-        cardColor = a.getColor(R.styleable.advDrawerLayout_adl_cardBackgroundColor, 0)
+        cardBackgroundColor = a.getColor(R.styleable.advDrawerLayout_adl_cardBackgroundColor, 0)
         a.recycle()
         defaultDrawerElevation = drawerElevation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -76,35 +75,6 @@ open class AdvanceDrawerLayout : DrawerLayout {
         super.addView(frameLayout)
     }
 
-    //    @Override
-    //    public void setFitsSystemWindows(boolean fitSystemWindows) {
-    ////        defaultFitsSystemWindows = fitSystemWindows;
-    //
-    //        super.setFitsSystemWindows(fitSystemWindows);
-    //
-    //        if (ViewCompat.getFitsSystemWindows(this)) {
-    //            if (Build.VERSION.SDK_INT >= 21) {
-    //                this.setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {
-    //                    @SuppressLint("RestrictedApi")
-    //                    public WindowInsets onApplyWindowInsets(View view, WindowInsets insets) {
-    //                        DrawerLayout drawerLayout = (DrawerLayout)view;
-    //                        drawerLayout.setChildInsets(insets, insets.getSystemWindowInsetTop() > 0);
-    //                        return insets.consumeSystemWindowInsets();
-    //                    }
-    //                });
-    //                this.setSystemUiVisibility(1280);
-    //                TypedArray a = getC.obtainStyledAttributes(THEME_ATTRS);
-    //
-    //                try {
-    //                    this.mStatusBarBackground = a.getDrawable(0);
-    //                } finally {
-    //                    a.recycle();
-    //                }
-    //            } else {
-    //                this.mStatusBarBackground = null;
-    //            }
-    //        }
-    //    }
     override fun addView(child: View, params: ViewGroup.LayoutParams) {
         child.layoutParams = params
         addView(child)
@@ -118,7 +88,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
             cardView.radius = 0f
             cardView.addView(child)
             cardView.cardElevation = 0f
-            cardView.setCardBackgroundColor(cardColor)
+            cardView.setCardBackgroundColor(cardBackgroundColor)
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 cardView.setContentPadding(-6, -9, -6, -9)
             }
@@ -133,16 +103,15 @@ open class AdvanceDrawerLayout : DrawerLayout {
             setting = createSetting()
             settings[absGravity] = setting
         } else setting = settings[absGravity]
-        assert(setting != null)
-        setting!!.percentage = percentage
+        setting?.percentage = percentage
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             if (percentage < 1) {
                 setStatusBarBackground(null)
                 systemUiVisibility = 0
             }
         }
-        setting.scrimColor = Color.TRANSPARENT
-        setting.drawerElevation = 0f
+        setting?.scrimColor = Color.TRANSPARENT
+        setting?.drawerElevation = 0f
     }
 
     fun setViewElevation(gravity: Int, elevation: Float) {
@@ -152,10 +121,9 @@ open class AdvanceDrawerLayout : DrawerLayout {
             setting = createSetting()
             settings[absGravity] = setting
         } else setting = settings[absGravity]
-        assert(setting != null)
-        setting!!.scrimColor = Color.TRANSPARENT
-        setting.drawerElevation = 0f
-        setting.elevation = elevation
+        setting?.scrimColor = Color.TRANSPARENT
+        setting?.drawerElevation = 0f
+        setting?.elevation = elevation
     }
 
     fun setViewScrimColor(gravity: Int, scrimColor: Int) {
@@ -165,20 +133,16 @@ open class AdvanceDrawerLayout : DrawerLayout {
             setting = createSetting()
             settings[absGravity] = setting
         } else setting = settings[absGravity]
-        assert(setting != null)
-        setting!!.scrimColor = scrimColor
+        setting?.scrimColor = scrimColor
     }
 
-    fun setDrawerElevation(gravity: Int, elevation: Float) {
-        val absGravity = getDrawerViewAbsoluteGravity(gravity)
-        val setting: Setting?
-        if (!settings.containsKey(absGravity)) {
-            setting = createSetting()
-            settings[absGravity] = setting
-        } else setting = settings[absGravity]
-        assert(setting != null)
-        setting!!.elevation = 0f
-        setting.drawerElevation = elevation
+
+    fun setCardBackgroundColor(gravity: Int, color: Int) {
+        cardBackgroundColor = color
+        for (i in 0 until frameLayout!!.childCount) {
+            val child = frameLayout!!.getChildAt(i) as CardView
+            child.setCardBackgroundColor(cardBackgroundColor)
+        }
     }
 
     fun setRadius(gravity: Int, radius: Float) {
@@ -267,8 +231,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
                 ViewCompat.setScaleY(child, 1f - percentage * slideOffset)
                 child.cardElevation = setting.elevation * slideOffset
                 adjust = setting.elevation
-                var isLeftDrawer: Boolean
-                isLeftDrawer = if (isRtl) childAbsGravity != absHorizGravity else childAbsGravity == absHorizGravity
+                var isLeftDrawer: Boolean = if (isRtl) childAbsGravity != absHorizGravity else childAbsGravity == absHorizGravity
                 val width = if (isLeftDrawer) drawerView.width + adjust else -drawerView.width - adjust
                 updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer)
             } else {
