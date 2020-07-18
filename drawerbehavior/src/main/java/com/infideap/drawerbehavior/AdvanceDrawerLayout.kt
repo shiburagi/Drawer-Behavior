@@ -22,6 +22,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.MaterialShapeDrawable
 import java.util.*
+import kotlin.math.floor
+import kotlin.math.round
 
 /**
  * Created by Shiburagi on 21/09/2017.
@@ -225,7 +227,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
                         }
                     }
                 }
-                child.radius = setting.radius * slideOffset
+                child.radius = (round((setting.radius * slideOffset) * 2.0) / 2).toFloat()
                 super.setScrimColor(setting.scrimColor)
                 super.setDrawerElevation(setting.drawerElevation)
                 val percentage = 1f - setting.percentage
