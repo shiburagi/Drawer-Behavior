@@ -18,7 +18,7 @@ class Advance3DDrawerLayout : AdvanceDrawerLayout {
         updateSlideOffset(child, setting as Setting, width, slideOffset, isLeftDrawer)
     }
 
-    fun updateSlideOffset(child: CardView, setting: Setting, width: Float, slideOffset: Float, isLeftDrawer: Boolean) {
+    private fun updateSlideOffset(child: CardView, setting: Setting, width: Float, slideOffset: Float, isLeftDrawer: Boolean) {
         if (setting.degree > 0) {
             val percentage = setting.degree / 90f
             child.x = width * slideOffset - child.width / 2.0f * percentage * slideOffset
@@ -26,7 +26,7 @@ class Advance3DDrawerLayout : AdvanceDrawerLayout {
         } else super.updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer)
     }
 
-    public override fun createSetting(): AdvanceDrawerLayout.Setting {
+    override fun createSetting(): AdvanceDrawerLayout.Setting {
         return Setting()
     }
 

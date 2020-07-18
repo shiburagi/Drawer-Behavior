@@ -34,7 +34,7 @@ class Advance3DDrawer1Activity : AppCompatActivity(), NavigationView.OnNavigatio
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         drawer!!.setViewScale(GravityCompat.START, 0.96f)
-        drawer!!.setRadius(GravityCompat.START, 20f)
+//        drawer!!.setRadius(GravityCompat.START, 20f)
         drawer!!.setViewElevation(GravityCompat.START, 8f)
         drawer!!.setViewRotation(GravityCompat.START, 15f)
     }
