@@ -98,12 +98,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
     }
 
     fun setViewScale(gravity: Int, percentage: Float) {
-        val absGravity = getDrawerViewAbsoluteGravity(gravity)
-        val setting: Setting?
-        if (!settings.containsKey(absGravity)) {
-            setting = createSetting()
-            settings[absGravity] = setting
-        } else setting = settings[absGravity]
+        val setting = settingDrawer(gravity)
         setting?.percentage = percentage
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             if (percentage < 1) {
@@ -116,27 +111,29 @@ open class AdvanceDrawerLayout : DrawerLayout {
     }
 
     fun setViewElevation(gravity: Int, elevation: Float) {
-        val absGravity = getDrawerViewAbsoluteGravity(gravity)
-        val setting: Setting?
-        if (!settings.containsKey(absGravity)) {
-            setting = createSetting()
-            settings[absGravity] = setting
-        } else setting = settings[absGravity]
+        val setting = settingDrawer(gravity)
         setting?.scrimColor = Color.TRANSPARENT
         setting?.drawerElevation = 0f
         setting?.elevation = elevation
     }
 
     fun setViewScrimColor(gravity: Int, scrimColor: Int) {
-        val absGravity = getDrawerViewAbsoluteGravity(gravity)
-        val setting: Setting?
-        if (!settings.containsKey(absGravity)) {
-            setting = createSetting()
-            settings[absGravity] = setting
-        } else setting = settings[absGravity]
+        val setting = settingDrawer(gravity)
         setting?.scrimColor = scrimColor
     }
 
+    fun setRadius(gravity: Int, radius: Float) {
+        val setting = settingDrawer(gravity)
+        setting!!.radius = radius
+    }
+
+    private fun settingDrawer(gravity: Int): Setting? {
+        val absGravity = getDrawerViewAbsoluteGravity(gravity)
+        return if (!settings.containsKey(absGravity)) {
+            settings[absGravity] = createSetting()
+            settings[absGravity]
+        } else settings[absGravity]
+    }
 
     fun setCardBackgroundColor(gravity: Int, color: Int) {
         cardBackgroundColor = color
@@ -144,16 +141,6 @@ open class AdvanceDrawerLayout : DrawerLayout {
             val child = frameLayout!!.getChildAt(i) as CardView
             child.setCardBackgroundColor(cardBackgroundColor)
         }
-    }
-
-    fun setRadius(gravity: Int, radius: Float) {
-        val absGravity = getDrawerViewAbsoluteGravity(gravity)
-        val setting: Setting?
-        if (!settings.containsKey(absGravity)) {
-            setting = createSetting()
-            settings[absGravity] = setting
-        } else setting = settings[absGravity]
-        setting!!.radius = radius
     }
 
     fun getSetting(gravity: Int): Setting? {
