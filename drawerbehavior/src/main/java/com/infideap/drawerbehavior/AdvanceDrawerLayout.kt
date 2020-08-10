@@ -97,7 +97,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
         }
     }
 
-    fun setViewScale(gravity: Int, percentage: Float) {
+    fun setScale(gravity: Int, percentage: Float) {
         val setting = settingDrawer(gravity)
         setting?.percentage = percentage
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -110,14 +110,14 @@ open class AdvanceDrawerLayout : DrawerLayout {
         setting?.drawerElevation = 0f
     }
 
-    fun setViewElevation(gravity: Int, elevation: Float) {
+    fun setElevation(gravity: Int, elevation: Float) {
         val setting = settingDrawer(gravity)
         setting?.scrimColor = Color.TRANSPARENT
         setting?.drawerElevation = 0f
         setting?.elevation = elevation
     }
 
-    fun setViewScrimColor(gravity: Int, scrimColor: Int) {
+    fun setScrimColor(gravity: Int, scrimColor: Int) {
         val setting = settingDrawer(gravity)
         setting?.scrimColor = scrimColor
     }

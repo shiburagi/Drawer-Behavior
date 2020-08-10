@@ -29,7 +29,7 @@ class Advance3DDrawerLayout : AdvanceDrawerLayout {
         return Setting()
     }
 
-    fun setViewRotation(gravity: Int, degree: Float) {
+    fun setRotation(gravity: Int, degree: Float) {
         val absGravity = getDrawerViewAbsoluteGravity(gravity)
         val setting: Setting?
         if (!settings.containsKey(absGravity)) {

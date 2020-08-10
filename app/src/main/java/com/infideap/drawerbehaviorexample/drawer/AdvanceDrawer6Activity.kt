@@ -39,9 +39,9 @@ class AdvanceDrawer6Activity : AppCompatActivity(), NavigationView.OnNavigationI
         toggle.syncState()
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
-        drawer!!.setViewScale(GravityCompat.START, 0.9f)
+        drawer!!.setScale(GravityCompat.START, 0.9f)
         drawer!!.setRadius(GravityCompat.START, 35f)
-        drawer!!.setViewElevation(GravityCompat.START, 20f)
+        drawer!!.setElevation(GravityCompat.START, 20f)
     }
 
     private fun setLocale(locale: Locale) {
