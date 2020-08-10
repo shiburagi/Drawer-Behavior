@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Drawer-Behavior.iml" filepath="$PROJECT_DIR$/Drawer-Behavior.iml" group="Drawer-Behavior" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Drawer-Behavior-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Drawer-Behavior-app.iml" group="Drawer-Behavior/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/drawerbehavior/Drawer-Behavior-drawerbehavior.iml" filepath="$PROJECT_DIR$/.idea/modules/drawerbehavior/Drawer-Behavior-drawerbehavior.iml" group="Drawer-Behavior/drawerbehavior" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Drawer-Behavior/app" />
       <module fileurl="file://$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" filepath="$PROJECT_DIR$/drawerbehavior/drawerbehavior.iml" group="Drawer-Behavior/drawerbehavior" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/naufalprakoso-Drawer-Behavior.iml" filepath="$PROJECT_DIR$/.idea/modules/naufalprakoso-Drawer-Behavior.iml" group="Drawer-Behavior" />
     </modules>
   </component>
 </project>

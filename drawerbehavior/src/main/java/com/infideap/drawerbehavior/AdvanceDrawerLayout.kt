@@ -9,7 +9,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -22,7 +21,6 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.shape.MaterialShapeDrawable
 import java.util.*
-import kotlin.math.floor
 import kotlin.math.round
 
 /**
@@ -234,7 +232,7 @@ open class AdvanceDrawerLayout : DrawerLayout {
                 ViewCompat.setScaleY(child, 1f - percentage * slideOffset)
                 child.cardElevation = setting.elevation * slideOffset
                 adjust = setting.elevation
-                var isLeftDrawer: Boolean = if (isRtl) childAbsGravity != absHorizGravity else childAbsGravity == absHorizGravity
+                val isLeftDrawer = if (isRtl) childAbsGravity != absHorizGravity else childAbsGravity == absHorizGravity
                 val width = if (isLeftDrawer) drawerView.width + adjust else -drawerView.width - adjust
                 updateSlideOffset(child, setting, width, slideOffset, isLeftDrawer)
             } else {
@@ -248,10 +246,10 @@ open class AdvanceDrawerLayout : DrawerLayout {
         this.contrastThreshold = contrastThreshold
     }
 
-    val activity: Activity?
+    private val activity: Activity?
         get() = getActivity(context)
 
-    fun getActivity(context: Context?): Activity? {
+    private fun getActivity(context: Context?): Activity? {
         if (context == null) return null
         if (context is Activity) return context
         return if (context is ContextWrapper) getActivity(context.baseContext) else null
