@@ -4,15 +4,14 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import androidx.cardview.widget.CardView
-import com.infideap.drawerbehavior.Advance3DDrawerLayout
 
 /**
  * Created by Shiburagi on 21/09/2017.
  */
 class Advance3DDrawerLayout : AdvanceDrawerLayout {
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {}
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     override fun updateSlideOffset(child: CardView, setting: AdvanceDrawerLayout.Setting?, width: Float, slideOffset: Float, isLeftDrawer: Boolean) {
         updateSlideOffset(child, setting as Setting, width, slideOffset, isLeftDrawer)
@@ -30,14 +29,13 @@ class Advance3DDrawerLayout : AdvanceDrawerLayout {
         return Setting()
     }
 
-    fun setViewRotation(gravity: Int, degree: Float) {
+    fun setRotation(gravity: Int, degree: Float) {
         val absGravity = getDrawerViewAbsoluteGravity(gravity)
         val setting: Setting?
         if (!settings.containsKey(absGravity)) {
             setting = createSetting() as Setting
             settings[absGravity] = setting
         } else setting = settings[absGravity] as Setting?
-
 
         setting?.degree = if (degree > 45) 45f else degree
         setting?.scrimColor = Color.TRANSPARENT

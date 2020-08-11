@@ -34,8 +34,8 @@ class AdvanceDrawer3Activity : AppCompatActivity(), NavigationView.OnNavigationI
         toggle.syncState()
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
-        drawer!!.setViewScale(Gravity.START, 0.9f)
-        drawer!!.setViewElevation(Gravity.START, 20f)
+        drawer!!.setScale(Gravity.START, 0.9f)
+        drawer!!.setElevation(Gravity.START, 20f)
         drawer!!.useCustomBehavior(Gravity.END)
     }
 

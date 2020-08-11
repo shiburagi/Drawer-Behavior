@@ -34,8 +34,8 @@ class AdvanceDrawer4Activity : AppCompatActivity(), NavigationView.OnNavigationI
         toggle.syncState()
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
-        drawer!!.setViewScale(Gravity.END, 0.9f)
-        drawer!!.setViewElevation(Gravity.END, 20f)
+        drawer!!.setScale(Gravity.END, 0.9f)
+        drawer!!.setElevation(Gravity.END, 20f)
     }
 
     override fun onBackPressed() {
