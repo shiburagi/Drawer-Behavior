@@ -1,6 +1,7 @@
 # Drawer-Behavior
 [ ![Download](https://api.bintray.com/packages/infideap2/Drawer-Behavior/Drawer-Behavior/images/download.svg) ](https://bintray.com/infideap2/Drawer-Behavior/Drawer-Behavior/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Drawer--Behavior-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6239)
+![fdsfd](https://github.com/shiburagi/Drawer-Behavior/workflows/CI/badge.svg)
 
 Drawer behavior is a library use **[Android DrawerLayout Support library](https://developer.android.com/training/implementing-navigation/nav-drawer)** as **Parent Class [Easy to migrate]**, that provide an **extra behavior on drawer**, such as, move view or scaling view's height while drawer on slide. 
 
