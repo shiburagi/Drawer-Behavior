@@ -200,7 +200,8 @@ open class AdvanceDrawerLayout : DrawerLayout {
         val window = activity!!.window
         var isRtl = false
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            isRtl = layoutDirection == View.LAYOUT_DIRECTION_RTL || window.decorView.layoutDirection == View.LAYOUT_DIRECTION_RTL || resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
+            isRtl = layoutDirection == View.LAYOUT_DIRECTION_RTL
+//                    || window.decorView.layoutDirection == View.LAYOUT_DIRECTION_RTL || resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
         }
         for (i in 0 until frameLayout!!.childCount) {
             val child = frameLayout!!.getChildAt(i) as CardView
