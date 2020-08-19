@@ -42,7 +42,7 @@ dependencies {
 publish {
     def groupProjectID = 'com.infideap.drawerbehavior'
     def artifactProjectID = 'drawer-behavior'
-    def publishVersionID = '1.0.3'
+    def publishVersionID = '1.0.4'
 
     userOrg = 'infideap2'
     repoName = "Drawer-Behavior"
