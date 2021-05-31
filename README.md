@@ -43,15 +43,18 @@ a dependency:
 #### Gradle
 
 ```groovy
-repositories {
- maven{
-   maven { url 'https://jitpack.io' }
- }
+maven {
+    name = "GitHubPackages"
+    url = uri("https://maven.pkg.github.com/shiburagi/Drawer-Behavior") // Github Package
+    credentials {
+	username = "shiburagi"
+	password = "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"
+    }
 }
-```
+``` 
 ```groovy
 dependencies {
-	  implementation 'com.github.shiburagi:Drawer-Behavior:v1.0.4'
+    implementation 'com.shiburagi.drawerbehavior:drawerbehavior:1.0.13'
 }
 ```
 
