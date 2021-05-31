@@ -1,5 +1,4 @@
 # Drawer-Behavior
-[ ![Download](https://api.bintray.com/packages/infideap2/Drawer-Behavior/Drawer-Behavior/images/download.svg) ](https://bintray.com/infideap2/Drawer-Behavior/Drawer-Behavior/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Drawer--Behavior-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6239)
 ![fdsfd](https://github.com/shiburagi/Drawer-Behavior/workflows/CI/badge.svg)
 
@@ -41,27 +40,18 @@ If you are a Maven user you can easily include the library by specifying it as
 a dependency:
 
 #### Maven
-``` xml
-<dependency>
-  <groupId>com.infideap.drawerbehavior</groupId>
-  <artifactId>drawer-behavior</artifactId>
-  <version>1.0.4</version>
-  <type>pom</type>
-</dependency>
-```
 #### Gradle
-```groovy
-dependencies {
-   implementation 'com.infideap.drawerbehavior:drawer-behavior:1.0.4'
-}
-```
 
-if **the gradle unable to sync**, you may include this line in project level gradle,
 ```groovy
 repositories {
  maven{
-   url "https://dl.bintray.com/infideap2/Drawer-Behavior"
+   maven { url 'https://jitpack.io' }
  }
+}
+```
+```groovy
+dependencies {
+	  implementation 'com.github.shiburagi:Drawer-Behavior:v1.0.4'
 }
 ```
 
